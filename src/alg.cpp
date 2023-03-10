@@ -3,8 +3,9 @@
 int cbinsearch_Helper_left(int* arr, int size, int value) {
   int left = 0;
   int right = size - 1;
+  int mid = (left + right) / 2;
   while (left <= right) {
-    int	mid = (left + right) / 2;
+    mid = (left + right) / 2;
     if (arr[mid] == value && mid == 0) return 0;
     if ((arr[mid] == value && arr[mid - 1] != value)) return mid;
     if (value > arr[mid]) {
@@ -42,4 +43,5 @@ int cbinsearch(int* arr, int size, int value) {
     return (cbinsearch_Helper_right(arr, size, value) - \
             cbinsearch_Helper_left(arr, size, value)) + 1;
   }
+  return 0;
 }
